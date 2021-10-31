@@ -1016,10 +1016,11 @@ def main():
                     global_step += 1
 
                 # # Save a trained model
-                # model_to_save = model.module if hasattr(model, 'module') else model  # Only save the model it-self
-                # output_model_file = os.path.join(args.output_dir, "pytorch_model_{}.bin".format(epoch))
-                # if args.do_train:
-                #     torch.save(model_to_save.state_dict(), output_model_file)
+                model_to_save = model.module if hasattr(model, 'module') else model  # Only save the model it-self
+                #output_model_file = os.path.join(args.output_dir, "pytorch_model_{}.bin".format(epoch))
+                output_model_file = "/home/admin/workspace/project/pytorch_pretrained_BERT/examples/output/" + "pytorch_model_{}.bin".format(epoch))
+                if args.do_train:
+                    torch.save(model_to_save.state_dict(), output_model_file)
                 #     # Load a trained model that you have fine-tuned
                 #     model_state_dict = torch.load(output_model_file)
                 #     model = BertForQuestionAnswering.from_pretrained(args.bert_model, state_dict=model_state_dict)
